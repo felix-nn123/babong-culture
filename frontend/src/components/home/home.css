@@ -1,0 +1,18 @@
+@import './normalize.css';
+
+#root{
+font-family: 'IBM Plex Sans', sans-serif;
+}
+
+html {
+font-size: 62.5%;
+}
+
+body{
+font-size: 1.6rem;
+}
+
+.navbar-expand-lg{
+padding-top: 10px;
+padding-bottom: 10px;
+}
