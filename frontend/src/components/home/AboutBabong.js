@@ -6,7 +6,6 @@ const AboutBabong = () => {
       <h2
         style={{
           textAlign: 'center',
-          marginTop: '70px',
           fontWeight: 'bolder',
           color: '#367E18',
           fontFamily: "'Noto Serif', serif",

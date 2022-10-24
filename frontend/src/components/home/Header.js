@@ -1,6 +1,6 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faSackDollar } from '@fortawesome/free-solid-svg-icons'
 
 import video from './video/video.mp4'
 
@@ -29,8 +29,18 @@ const Header = () => {
               fontFamily: "'Noto Serif', serif",
             }}
           >
-            LEARN MORE ABOUT BABONG VILLAGE AND HELP US TO BUILD A BETTER
-            COMMUNITY
+            LEARN MORE ABOUT{' '}
+            <span
+              style={{
+                color: '#367E18',
+                // fontStyle: 'italic',
+                padding: '5px',
+                border: '1px solid #367E18',
+              }}
+            >
+              BABONG VILLAGE
+            </span>{' '}
+            AND HELP US TO BUILD A BETTER COMMUNITY
           </h1>
 
           <p
@@ -54,6 +64,7 @@ const Header = () => {
               width: '100%',
               paddingRight: '10%',
               marginTop: '25px',
+              zIndex: '3',
             }}
           >
             <a
@@ -70,6 +81,7 @@ const Header = () => {
                 alignItems: 'center',
               }}
               className='btn'
+              href='#'
             >
               LEARN MORE ABOUT US
               <FontAwesomeIcon
@@ -97,15 +109,73 @@ const Header = () => {
               className='btn'
             >
               DONATE FUND
+              <FontAwesomeIcon
+                style={{
+                  fontSize: '20px',
+                  color: 'white',
+                  opacity: '1',
+                  marginLeft: '8px',
+                }}
+                icon={faSackDollar}
+              />
             </a>
           </div>
         </div>
       </div>
       <div
         style={{
+          width: '40%',
+          height: '100vh',
+          paddingTop: '15vh',
+          zIndex: '2',
+          position: 'absolute',
+
+          right: '0',
+        }}
+      >
+        <form
+          style={{
+            marginLeft: '50px',
+            position: 'absolute',
+            right: '10px',
+            //               zIndex: '5',
+          }}
+          className='d-flex'
+          role='search'
+        >
+          <input
+            className='form-control me-2'
+            type='search'
+            placeholder='Search'
+            aria-label='Search'
+            style={{
+              width: '35rem',
+              fontSize: '1.6rem',
+              padding: '15px',
+              borderRadius: '20px',
+            }}
+          />
+          <button
+            style={{
+              color: 'white',
+              fontSize: '1.6rem',
+              borderRadius: '15px',
+              padding: '5px 20px',
+            }}
+            className='btn btn-outline-success'
+            type='submit'
+          >
+            Search
+          </button>
+        </form>
+      </div>
+      <div
+        style={{
           width: '100%',
           height: '100%',
           background: 'black',
+          position: 'absolute',
+          zIndex: '-1',
         }}
       >
         <video

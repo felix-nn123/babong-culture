@@ -3,7 +3,7 @@ import Progress from 'react-progressbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight, faSackDollar } from '@fortawesome/free-solid-svg-icons'
 
-const ProjectCard = ({ pointerEvents = 'auto' }) => {
+const ProjectCardComplete = ({ pointerEvents = 'auto' }) => {
   return (
     <div
       style={{
@@ -15,19 +15,82 @@ const ProjectCard = ({ pointerEvents = 'auto' }) => {
         padding: '10px',
       }}
     >
-      <div
-        style={{
-          width: '100%',
-          height: '300px',
-          opacity: '1',
-          borderRadius: '10px',
-          overflow: 'hidden',
-        }}
-      >
-        <img
-          style={{ width: '100%', height: '100%', opacity: '1' }}
-          src='../../../images/tap.jpg'
-        />
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        <div
+          style={{
+            width: '100%',
+            height: '300px',
+            opacity: '1',
+            borderRadius: '10px',
+            overflow: 'hidden',
+            flex: '1',
+            marginRight: '2px',
+            border: '1px solid #367E18',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              padding: '2px 5px',
+              background: 'black',
+              borderRadius: '10px',
+              marginTop: '5px',
+              marginLeft: '5px',
+              opacity: '0.9',
+              color: 'white',
+              border: '2px solid white',
+            }}
+          >
+            Before
+          </div>
+          <img
+            style={{
+              width: '100%',
+              height: '100%',
+              opacity: '1',
+              cursor: 'pointer',
+            }}
+            src='../../../images/tap.jpg'
+          />
+        </div>
+        <div
+          style={{
+            width: '100%',
+            height: '300px',
+            opacity: '1',
+            borderRadius: '10px',
+            overflow: 'hidden',
+            flex: '1',
+            marginLeft: '2px',
+            border: '1px solid #367E18',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              padding: '2px 10px',
+              background: '#367E18',
+              borderRadius: '10px',
+              marginTop: '5px',
+              marginLeft: '5px',
+              opacity: '0.9',
+              color: 'white',
+              border: '2px solid white',
+            }}
+          >
+            After
+          </div>
+
+          <img
+            style={{
+              width: '100%',
+              height: '100%',
+              opacity: '1',
+              cursor: 'pointer',
+            }}
+            src='../../../images/tap.jpg'
+          />
+        </div>
       </div>
       <div style={{ marginTop: '20px', width: '100%' }}>
         <p
@@ -132,9 +195,9 @@ const ProjectCard = ({ pointerEvents = 'auto' }) => {
           alignItems: 'center',
         }}
       >
-        <div style={{ width: '10%' }}>70%</div>
+        <div style={{ width: '10%' }}>100%</div>
         <div style={{ width: '90%' }}>
-          <Progress color='#367E18' completed={70} />
+          <Progress color='#367E18' completed={100} />
         </div>
       </div>
       <div
@@ -193,4 +256,4 @@ const ProjectCard = ({ pointerEvents = 'auto' }) => {
   )
 }
 
-export default ProjectCard
+export default ProjectCardComplete

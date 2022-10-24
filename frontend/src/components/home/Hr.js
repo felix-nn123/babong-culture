@@ -2,7 +2,7 @@ import React from 'react'
 
 const Hr = () => {
   return (
-    <div style={{ width: '100%', padding: '20px 5%' }}>
+    <div style={{ width: '100%', padding: '50px 5%' }}>
       <div
         style={{
           background: '#367E18',

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHouseChimney,
@@ -6,14 +6,26 @@ import {
   faPeopleLine,
   faDiagramProject,
   faChevronCircleDown,
+  faChevronCircleUp,
   faUmbrella,
   faUserCircle,
   faPeopleGroup,
 } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 import './home.css'
+import Dropdown from './Dropdown'
+import DropdownProfile from './DropdownProfile'
 
 const Navbar = () => {
+  const [culture, setCulture] = useState(false)
+  const [project, setProject] = useState(false)
+  const [group, setGroup] = useState(false)
+  const [cult, setCult] = useState(false)
+  const [lead, setLead] = useState(false)
+  const [event, setEvent] = useState(false)
+  const [profile, setProfile] = useState(false)
+
   return (
     <nav
       style={{
@@ -83,7 +95,12 @@ const Navbar = () => {
                 </div>
               </a>
             </li>
-            <li style={{ marginLeft: '20px' }} className='nav-item'>
+            <li
+              onMouseEnter={() => setCulture(true)}
+              onMouseLeave={() => setCulture(false)}
+              style={{ marginLeft: '20px' }}
+              className='nav-item'
+            >
               <a
                 style={{
                   color: 'white',
@@ -107,17 +124,34 @@ const Navbar = () => {
                     icon={faPeopleLine}
                   />
                   <span style={{ margin: '0 5px' }}>CULTURE</span>
-                  <FontAwesomeIcon
-                    style={{
-                      color: 'white',
-                      fontSize: '1.6rem',
-                    }}
-                    icon={faChevronCircleDown}
-                  />
+                  {!culture && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleDown}
+                    />
+                  )}
+                  {culture && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleUp}
+                    />
+                  )}
                 </div>
               </a>
+              {culture && <Dropdown />}
             </li>
-            <li style={{ marginLeft: '20px' }} className='nav-item dropdown'>
+            <li
+              onMouseEnter={() => setProject(true)}
+              onMouseLeave={() => setProject(false)}
+              style={{ marginLeft: '20px' }}
+              className='nav-item dropdown'
+            >
               <a
                 className='nav-link'
                 href='#'
@@ -141,33 +175,76 @@ const Navbar = () => {
                     icon={faDiagramProject}
                   />
                   <span style={{ margin: '0 5px' }}>PROJECTS</span>
-                  <FontAwesomeIcon
-                    style={{
-                      color: 'white',
-                      fontSize: '1.6rem',
-                    }}
-                    icon={faChevronCircleDown}
-                  />
+                  {!project && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleDown}
+                    />
+                  )}
+                  {project && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleUp}
+                    />
+                  )}
                 </div>
               </a>
-              <ul className='dropdown-menu'>
-                <li>
-                  <a className='dropdown-item' href='#'>
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <hr className='dropdown-divider' />
-                </li>
-                <li>
-                  <a className='dropdown-item' href='#'>
-                    Something else here
-                  </a>
-                </li>
-              </ul>
+              {project && (
+                <Dropdown
+                  src='../../../images/dig.jpg'
+                  topic='VIEW AND ANALYSIS ALL PROJECTS'
+                  body={
+                    <div style={{ width: '100%', padding: '5px 0px 10px 0px' }}>
+                      <div style={{ width: '100%', textAlign: 'center' }}>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              Community Water Tap
+                            </div>
+                          </Link>
+                        </div>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              Grade the Bad Road
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                />
+              )}
             </li>
 
-            <li style={{ marginLeft: '20px' }} className='nav-item'>
+            <li
+              onMouseEnter={() => setGroup(true)}
+              onMouseLeave={() => setGroup(false)}
+              style={{ marginLeft: '20px' }}
+              className='nav-item'
+            >
               <a
                 style={{ color: 'white', display: 'flex' }}
                 className='nav-link'
@@ -189,18 +266,76 @@ const Navbar = () => {
                     icon={faUmbrella}
                   />
                   <span style={{ margin: '0 5px' }}>LOCAL GROUPS</span>
-                  <FontAwesomeIcon
-                    style={{
-                      color: 'white',
-                      fontSize: '1.6rem',
-                    }}
-                    icon={faChevronCircleDown}
-                  />
+                  {!group && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleDown}
+                    />
+                  )}
+                  {group && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleUp}
+                    />
+                  )}
                 </div>
               </a>
+              {group && (
+                <Dropdown
+                  src='../../../images/group.jpg'
+                  topic='VIEW AND JOIN ANY LOCAL GROUP'
+                  body={
+                    <div style={{ width: '100%', padding: '5px 0px 10px 0px' }}>
+                      <div style={{ width: '100%', textAlign: 'center' }}>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              B.A.C.U.D.A
+                            </div>
+                          </Link>
+                        </div>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              B.A.C.U.D.A Youth Wing
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                />
+              )}
             </li>
 
-            <li style={{ marginLeft: '20px' }} className='nav-item'>
+            <li
+              onMouseEnter={() => setCult(true)}
+              onMouseLeave={() => setCult(false)}
+              style={{ marginLeft: '20px' }}
+              className='nav-item'
+            >
               <a
                 style={{ color: 'white', display: 'flex' }}
                 className='nav-link'
@@ -222,38 +357,253 @@ const Navbar = () => {
                     icon={faTree}
                   />
                   <span style={{ margin: '0 5px' }}>VILLAGE CULTS</span>
+                  {!cult && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleDown}
+                    />
+                  )}
+                  {cult && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleUp}
+                    />
+                  )}
+                </div>
+              </a>
+              {cult && (
+                <Dropdown
+                  src='../../../images/group.jpg'
+                  topic='OUR TRADITIONAL CULT'
+                  body={
+                    <div style={{ width: '100%', padding: '5px 0px 10px 0px' }}>
+                      <div style={{ width: '100%', textAlign: 'center' }}>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              Sessiko
+                            </div>
+                          </Link>
+                        </div>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              Anang Cult
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                />
+              )}
+            </li>
+            <li
+              onMouseEnter={() => setLead(true)}
+              onMouseLeave={() => setLead(false)}
+              style={{ marginLeft: '20px' }}
+              className='nav-item'
+            >
+              <a
+                style={{ color: 'white', display: 'flex' }}
+                className='nav-link'
+                href='#'
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
                   <FontAwesomeIcon
                     style={{
                       color: 'white',
                       fontSize: '1.6rem',
                     }}
-                    icon={faChevronCircleDown}
+                    icon={faTree}
                   />
+                  <span style={{ margin: '0 5px' }}>LEADERSHIP</span>
+                  {!lead && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleDown}
+                    />
+                  )}
+                  {lead && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleUp}
+                    />
+                  )}
                 </div>
               </a>
+              {lead && (
+                <Dropdown
+                  src='../../../images/chief2.jpg'
+                  topic='OUR LEADERSHIP STRUCTURE'
+                  body={
+                    <div style={{ width: '100%', padding: '5px 0px 10px 0px' }}>
+                      <div style={{ width: '100%', textAlign: 'center' }}>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              Chief And Role
+                            </div>
+                          </Link>
+                        </div>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              lorem iodsume lobe sxask jae
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                />
+              )}
             </li>
-            <form
-              style={{ marginLeft: '50px' }}
-              className='d-flex'
-              role='search'
+            <li
+              onMouseEnter={() => setEvent(true)}
+              onMouseLeave={() => setEvent(false)}
+              style={{ marginLeft: '20px' }}
+              className='nav-item'
             >
-              <input
-                className='form-control me-2'
-                type='search'
-                placeholder='Search'
-                aria-label='Search'
-                style={{ width: '25rem', fontSize: '1.6rem' }}
-              />
-              <button
-                style={{ color: 'white', fontSize: '1.6rem' }}
-                className='btn btn-outline-success'
-                type='submit'
+              <a
+                style={{ color: 'white', display: 'flex' }}
+                className='nav-link'
+                href='#'
               >
-                Search
-              </button>
-            </form>
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                  }}
+                >
+                  <FontAwesomeIcon
+                    style={{
+                      color: 'white',
+                      fontSize: '1.6rem',
+                    }}
+                    icon={faTree}
+                  />
+                  <span style={{ margin: '0 5px' }}>CULTURAL EVENTS</span>
+                  {!event && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleDown}
+                    />
+                  )}
+                  {event && (
+                    <FontAwesomeIcon
+                      style={{
+                        color: 'white',
+                        fontSize: '1.6rem',
+                      }}
+                      icon={faChevronCircleUp}
+                    />
+                  )}
+                </div>
+              </a>
+              {event && (
+                <Dropdown
+                  src='../../../images/chief2.jpg'
+                  topic='VIEW OUR CULTURAL EVENTS'
+                  body={
+                    <div style={{ width: '100%', padding: '5px 0px 10px 0px' }}>
+                      <div style={{ width: '100%', textAlign: 'center' }}>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              CROWNING OF CHIEF
+                            </div>
+                          </Link>
+                        </div>
+                        <div style={{ borderBottom: '2px solid white' }}>
+                          <Link
+                            to='/monikim'
+                            style={{
+                              textDecoration: 'none',
+                              color: 'white',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
+                            <div style={{ width: '100%', height: '100%' }}>
+                              Competitive Traditional Dance
+                            </div>
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  }
+                />
+              )}
+            </li>
           </ul>
           <div
+            onMouseEnter={() => setProfile(true)}
+            onMouseLeave={() => setProfile(false)}
             style={{
               width: '180px',
               color: 'white',
@@ -262,6 +612,7 @@ const Navbar = () => {
               flexDirection: 'row',
               justifyContent: 'center',
               alignItems: 'center',
+              cursor: 'pointer',
             }}
           >
             <div
@@ -287,14 +638,31 @@ const Navbar = () => {
             <span style={{ margin: '0 5px', fontWeight: 'bold' }}>
               Felix Nkongho
             </span>
-            <FontAwesomeIcon
-              style={{
-                color: 'white',
-                fontSize: '1.6rem',
-              }}
-              icon={faChevronCircleDown}
-            />
+            {!profile && (
+              <FontAwesomeIcon
+                style={{
+                  color: 'white',
+                  fontSize: '1.6rem',
+                }}
+                icon={faChevronCircleDown}
+              />
+            )}
+            {profile && (
+              <FontAwesomeIcon
+                style={{
+                  color: 'white',
+                  fontSize: '1.6rem',
+                }}
+                icon={faChevronCircleUp}
+              />
+            )}
           </div>
+          {profile && (
+            <DropdownProfile
+              onMouseEnter={() => setProfile(true)}
+              onMouseLeave={() => setProfile(false)}
+            />
+          )}
         </div>
       </div>
     </nav>
