@@ -1,4 +1,5 @@
 import React from 'react'
+import ScrollToTop from 'react-scroll-to-top'
 
 import Navbar from '../components/home/Navbar'
 import Header from '../components/home/Header'
@@ -32,6 +33,7 @@ const HomeScreen = () => {
       <Hr />
       <MapLocation />
       <Footer />
+      <ScrollToTop style={{ left: '5px' }} smooth />
     </>
   )
 }
