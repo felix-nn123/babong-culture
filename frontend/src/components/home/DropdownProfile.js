@@ -82,7 +82,7 @@ const DropdownProfile = ({ onMouseEnter, onMouseLeave }) => {
                   </div>
                 </Link>
               </div>
-              <div style={{ borderBottom: '2px solid white' }}>
+              <div style={{ marginTop: '5px' }}>
                 <Link
                   to='/monikim'
                   style={{
